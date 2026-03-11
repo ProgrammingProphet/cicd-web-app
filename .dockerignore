@@ -1,0 +1,61 @@
+# ===========================
+# Git
+# ===========================
+.git
+.gitignore
+
+# ===========================
+# Secrets and Sensitive Files
+# ===========================
+secret.txt
+*.pem
+*.key
+*.crt
+.env
+.env.*
+
+# ===========================
+# IDE and Editor Files
+# ===========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===========================
+# OS Files
+# ===========================
+.DS_Store
+Thumbs.db
+
+# ===========================
+# Development Files
+# ===========================
+*.md
+LICENSE
+README*
+*.log
+
+# ===========================
+# Terraform (not needed in container)
+# ===========================
+terraform/
+*.tfstate*
+.terraform/
+
+# ===========================
+# Ansible (not needed in container)
+# ===========================
+ansible/
+
+# ===========================
+# CI/CD Workflows (not needed in container)
+# ===========================
+.github/
+
+# ===========================
+# Empty directories
+# ===========================
+
+

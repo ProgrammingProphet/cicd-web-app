@@ -1,0 +1,71 @@
+- name: Setup Server with Docker and SSL
+  hosts: ec2
+  become: yes
+
+  vars:
+    domain_name: ilikeyou.in
+    email: adityasrazvishwakarma@gmail.com
+    container_name: cicd-web-app
+
+  tasks:
+    - name: Update packages
+      apt:
+        update_cache: yes
+
+    - name: Install Docker
+      apt:
+        name:
+          - docker.io
+          # - nginx
+        state: present
+
+    - name: Start Docker
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Install Certbot
+      apt:
+        name: certbot
+        state: present
+
+    - name: Disable IPv6
+      sysctl:
+        name: net.ipv6.conf.all.disable_ipv6
+        value: "1"
+        state: present
+
+    # - name: Stop container if running
+    #   command: docker stop {{ container_name }}
+    #   ignore_errors: yes
+
+    - name: Stop container if running
+      shell: docker stop {{ container_name }} || true
+
+    - name: Generate SSL certificate
+      command: >
+        certbot certonly --standalone
+        -d {{ domain_name }}
+        -d www.{{ domain_name }}
+        --non-interactive
+        --agree-tos
+        -m {{ email }}
+
+    # - name: Start container again (optional)
+    #   command: docker start {{ container_name }}
+    #   ignore_errors: yes
+
+    - name: Add SSL auto renewal
+      cron:
+        name: "Certbot Renewal"
+        minute: "0"
+        hour: "3" # Every 24 hours at 3:00 AM
+        job: "certbot renew --quiet && docker restart {{ container_name }}"
+    # Certificates renew every 90 days automatically.
+
+    # - name: Start Nginx
+    #   service:
+    #     name: nginx
+    #     state: started
+    #     enabled: yes
