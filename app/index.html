@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI/CD pipeline · project showcase</title>
+    <!-- Font & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <nav class="navbar">
+        <div class="logo"><i class="fas fa-code-branch"
+                style="margin-right: 8px; background: linear-gradient(135deg,#2563eb,#0f2b63); -webkit-background-clip:text; -webkit-text-fill-color:transparent;"></i>
+            pipe.<span style="background:none; -webkit-text-fill-color:#0f2b63;">run</span></div>
+        <div class="nav-links">
+            <a href="#workflow">Workflow</a>
+            <a href="#skills">Skills</a>
+            <a href="#architecture">Architecture</a>
+            <a href="#recruiter">Impact</a>
+            <a href="#" class="btn-outline"><i class="fab fa-github"></i> Repo</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- HERO: project essence -->
+        <div class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge"><i class="fas fa-rocket" style="margin-right: 6px;"></i> CI/CD · DOCKER ·
+                        AUTOMATION</span>
+                    <h1>From git push to live deployment — fully automated</h1>
+                    <p>Production-grade CI/CD pipeline using GitHub Actions, Docker, and zero‑downtime EC2 deployment.
+                        Every commit triggers build, test, and secure release.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item"><span class="stat-number">~45s</span><span class="stat-label">build to
+                                live</span></div>
+                        <div class="stat-item"><span class="stat-number">3</span><span
+                                class="stat-label">environments</span></div>
+                        <div class="stat-item"><span class="stat-number">100%</span><span
+                                class="stat-label">automation</span></div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="pipeline-flow">
+                        <span class="flow-node"><i class="fas fa-code-branch"></i> dev push</span>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                        <span class="flow-node"><i class="fab fa-github"></i> GitHub</span>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                        <span class="flow-node"><i class="fas fa-gear"></i> Actions</span>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                        <span class="flow-node docker-icon"><i class="fab fa-docker"></i> Docker build</span>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                        <span class="flow-node"><i class="fas fa-cloud-upload-alt"></i> Docker Hub</span>
+                        <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+                        <span class="flow-node server-icon"><i class="fas fa-server"></i> AWS EC2 deploy</span>
+                    </div>
+                    <div style="margin-top: 2rem; text-align: center;">
+                        <span class="tech-tag"><i class="fab fa-github"></i> GitHub Actions</span>
+                        <span class="tech-tag"><i class="fab fa-docker"></i> Docker</span>
+                        <span class="tech-tag"><i class="fas fa-cloud"></i> AWS (Ubuntu)</span>
+                        <span class="tech-tag"><i class="fas fa-check-circle"></i> health checks</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SKILLS / CORE COMPETENCIES (what recruiters see) -->
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">⚡ Core DevOps skills — in action</h2>
+                <div class="grid-3">
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-arrows-spin"></i></div>
+                        <h3>CI/CD pipelines</h3>
+                        <p>Multi-step GitHub Actions workflow: lint, test, build, push, deploy. Conditional stages and
+                            secrets management.</p>
+                        <div><span class="skill-badge">self-hosted runner</span><span
+                                class="skill-badge">caching</span><span class="skill-badge">matrix build</span></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fab fa-docker"></i></div>
+                        <h3>Docker automation</h3>
+                        <p>Optimised multi-stage Dockerfiles, layer caching, image tagging (commit SHA & latest) and
+                            security scanning.</p>
+                        <div><span class="skill-badge">multi-stage</span><span class="skill-badge">docker
+                                scout</span><span class="skill-badge">:latest & :hash</span></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+                        <h3>AWS EC2 deployment</h3>
+                        <p>SSH-based zero‑downtime deploy with docker pull, container swap, and automatic rollback on
+                            failure.</p>
+                        <div><span class="skill-badge">docker-compose</span><span class="skill-badge">reverse
+                                proxy</span><span class="skill-badge">watchtower</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARCHITECTURE FLOW (detailed) -->
+        <section id="architecture" style="background: #f5f9ff;">
+            <div class="container">
+                <h2 class="section-title">📐 pipeline architecture</h2>
+                <div class="arch-diagram">
+                    <div class="arch-steps">
+                        <span class="step"><i class="fas fa-user-astronaut"></i> developer push</span>
+                        <i class="fas fa-arrow-right-long"></i>
+                        <span class="step"><i class="fab fa-github"></i> GitHub repository</span>
+                        <i class="fas fa-arrow-right-long"></i>
+                        <span class="step highlight"><i class="fas fa-gears"></i> GitHub Actions CI</span>
+                        <i class="fas fa-arrow-right-long"></i>
+                        <span class="step"><i class="fab fa-docker"></i> build & tag image</span>
+                        <i class="fas fa-arrow-right-long"></i>
+                        <span class="step"><i class="fas fa-upload"></i> push to Docker Hub</span>
+                        <i class="fas fa-arrow-right-long"></i>
+                        <span class="step"><i class="fas fa-server"></i> EC2 (pull & deploy)</span>
+                    </div>
+                    <div style="margin-top: 2.5rem; background: #ecf3fa; border-radius: 20px; padding: 1.5rem;">
+                        <h4 style="display: flex; gap: 12px; align-items: center; margin-bottom: 1rem;"><i
+                                class="fas fa-code-branch" style="color:#2563eb;"></i> pipeline details (simplified)
+                        </h4>
+                        <pre
+                            style="background: #0b1e42; color: #cbd5e1; padding: 1rem; border-radius: 16px; font-size: 0.8rem; overflow-x: auto;">name: CI/CD
+on: push
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - checkout
+      - docker build -t myapp:${{ github.sha }}
+      - docker push myapp:${{ github.sha }}
+      - ssh vps "docker pull myapp:${{ github.sha }} && docker run -d ..."</pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RECRUITER MESSAGE + DEBUGGING -->
+        <section id="recruiter">
+            <div class="container">
+                <div class="recruiter-note">
+                    <p><i class="fas fa-bullseye" style="color: #2563eb; margin-right: 12px;"></i> <strong
+                            style="font-size: 1.5rem;">What recruiters see:</strong> <br>You understand continuous
+                        integration and automated deployment — one of the core DevOps responsibilities. This project
+                        proves hands-on experience with <strong>GitHub Actions, Docker automation, deployment workflows,
+                            and pipeline debugging.</strong></p>
+                </div>
+                <div class="grid-2" style="margin-top: 2.5rem;">
+                    <div class="card" style="background: #eaf3ff;">
+                        <i class="fas fa-bug" style="font-size: 2rem; color:#2563eb; margin-bottom: 1rem;"></i>
+                        <h3>Pipeline debugging · real scenarios</h3>
+                        <p>Secrets misconfiguration, docker layer caching, rollback strategies — debugged and resolved
+                            during development. Includes Slack notifications on failure.</p>
+                    </div>
+                    <div class="card" style="background: #eaf3ff;">
+                        <i class="fas fa-magnifying-glass-chart"
+                            style="font-size: 2rem; color:#2563eb; margin-bottom: 1rem;"></i>
+                        <h3>Transparent workflow</h3>
+                        <p>Every push triggers test, build and deploy. Versioned Docker images, health check endpoint,
+                            and automated rollback if container fails to start.</p>
+                    </div>
+                </div>
+                <!-- additional impact statement -->
+                <div
+                    style="background: #fff; border-radius: 30px; padding: 2rem; margin-top: 2rem; border: 1px solid #cfdefa;">
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
+                        <i class="fas fa-check-circle" style="font-size: 3.5rem; color: #1f8b4c;"></i>
+                        <div>
+                            <h3 style="font-weight: 700;">From "developer push" to "live" — fully automated confidence
+                            </h3>
+                            <p style="color:#334155;">Built with infrastructure-as-code approach. The same pipeline can
+                                deploy to staging or production using GitHub environments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILL SUMMARY (footer like) -->
+        <section style="padding: 2rem 0 1rem;">
+            <div class="container">
+                <hr style="border: 1px solid #eef2f6;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin: 2rem 0 0;">
+                    <div><i class="fas fa-circle-check" style="color:#2563eb;"></i> CI/CD pipelines</div>
+                    <div><i class="fas fa-circle-check" style="color:#2563eb;"></i> Docker automation</div>
+                    <div><i class="fas fa-circle-check" style="color:#2563eb;"></i> Deployment workflows</div>
+                    <div><i class="fas fa-circle-check" style="color:#2563eb;"></i> Pipeline debugging</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <span>⚙️ CI/CD showcase · project by <strong>@devops.engineer</strong></span>
+        <span><i class="fab fa-github"></i> <i class="fab fa-docker"></i> <i class="fas fa-cloud"></i> live demo
+            available</span>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- additional style for micro-animation -->
+    <style>
+        .step {
+            transition: 0.15s ease;
+            cursor: default;
+        }
+
+        .hero-visual .flow-node {
+            transition: all 0.2s;
+        }
+
+        .hero-visual .flow-node:hover {
+            background: #2563eb10;
+            border: 1px solid #2563eb;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+    </style>
+</body>
+
+</html>
