@@ -54,6 +54,7 @@ jobs:
 
           script: |
 
+<<<<<<< HEAD
             # echo "Checking Docker installation..."
 
             # if ! command -v docker &> /dev/null
@@ -70,6 +71,24 @@ jobs:
             # else
             #     echo "Docker already installed"
             # fi
+=======
+            echo "Checking Docker installation..."
+
+            if ! command -v docker &> /dev/null
+            then
+                echo "Docker not found. Installing Docker..."
+
+                sudo apt update
+                sudo apt install -y docker.io
+
+                sudo systemctl start docker
+                sudo systemctl enable docker
+
+                sudo usermod -aG docker $USER
+            else
+                echo "Docker already installed"
+            fi
+>>>>>>> 90e445638ba7c132c129d0ff4c6afcafb72f8104
 
 
             echo "Pull latest image..."
